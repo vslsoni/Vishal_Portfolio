@@ -13,42 +13,50 @@
   <!-- Custom CSS -->
   <style>
     :root {
-      --primary: #1abc9c;
-      --secondary: #16a085;
-      --dark: #343a40;
+      /* Bold new color palette */
+      --primary: #e74c3c;   /* Vibrant Red */
+      --secondary: #9b59b6; /* Royal Purple */
+      --accent: #3498db;    /* Striking Blue */
+      --dark: #2c3e50;      /* Deep Navy */
+      --light: #ecf0f1;     /* Soft Light Gray */
     }
     html {
       scroll-behavior: smooth;
     }
     body {
       font-family: 'Roboto', sans-serif;
-      background: #f4f6f9;
-      color: #333;
+      background: var(--light);
+      color: var(--dark);
       line-height: 1.6;
+      margin: 0;
+      padding: 0;
     }
     /* Navbar */
     .navbar {
       transition: all 0.4s ease;
-      padding: 1rem 1rem;
+      padding: 1rem 2rem;
+      background: transparent;
     }
     .navbar.scrolled {
-      background: rgba(0,0,0,0.85) !important;
-      padding: 0.5rem 1rem;
+      background: rgba(44, 62, 80, 0.95);
+      padding: 0.5rem 2rem;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
     .navbar-brand {
       font-size: 1.8rem;
       font-weight: 700;
+      color: var(--primary) !important;
     }
     .nav-link {
       font-size: 1.1rem;
-      margin: 0 0.5rem;
+      margin: 0 0.75rem;
+      color: var(--dark) !important;
       transition: color 0.3s;
     }
     .nav-link:hover {
-      color: var(--secondary);
+      color: var(--accent) !important;
     }
-    /* Hero Section with Particles */
+    /* Hero Section */
     .hero {
       position: relative;
       height: 100vh;
@@ -60,39 +68,44 @@
       color: #fff;
       text-align: center;
     }
-    #particles-js {
+    /* Optional subtle texture overlay */
+    .hero::before {
+      content: "";
       position: absolute;
       width: 100%;
       height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 0;
+      background: url('https://www.transparenttextures.com/patterns/black-linen.png');
+      opacity: 0.05;
+      z-index: 1;
     }
     .hero .content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
     .hero h1 {
-      font-size: 4rem;
+      font-size: 4.5rem;
       margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
     }
     .hero p {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     /* Section Titles */
     .section-title {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
       margin-bottom: 40px;
+      color: var(--dark);
       text-align: center;
       position: relative;
     }
     .section-title::after {
       content: "";
       display: block;
-      width: 80px;
+      width: 100px;
       height: 4px;
       background: var(--primary);
       margin: 0.5rem auto 0;
@@ -128,8 +141,13 @@
       color: var(--primary);
     }
     .project-body h4 {
-      color: var(--secondary);
+      color: var(--accent);
       margin-top: 1.5rem;
+      font-weight: 500;
+    }
+    .project-body p,
+    .project-body ul {
+      margin-bottom: 20px;
     }
     .project-body ul {
       padding-left: 1.5rem;
@@ -137,7 +155,7 @@
     .project-body ul li {
       margin-bottom: 0.5rem;
     }
-    /* Contact */
+    /* Contact Section */
     #contact p a {
       color: var(--primary);
       font-weight: 500;
@@ -145,7 +163,7 @@
       transition: color 0.3s;
     }
     #contact p a:hover {
-      color: var(--secondary);
+      color: var(--accent);
     }
     /* Footer */
     footer {
@@ -153,12 +171,13 @@
       color: #fff;
       padding: 2rem 0;
       text-align: center;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">Vishal's Portfolio</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -176,11 +195,10 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div id="particles-js"></div>
-    <div class="content" data-aos="fade-up">
+  <section class="hero" data-aos="fade-up">
+    <div class="content">
       <h1>Welcome to My Portfolio</h1>
-      <p>Exploring Data, ETL Process, and Predictive Modelling with Passion</p>
+      <p>Exploring Data, ETL, and Predictive Modelling with Passion</p>
     </div>
   </section>
 
@@ -299,12 +317,8 @@
   <!-- JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    // Initialize AOS animations
     AOS.init({ duration: 800, once: true });
-
-    // Navbar shrink effect on scroll
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');
       if (window.scrollY > 80) {
@@ -313,34 +327,6 @@
         navbar.classList.remove('scrolled');
       }
     });
-
-    // Initialize particles.js with inline config
-    particlesJS('particles-js',
-      {
-        "particles": {
-          "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-          "color": { "value": "#ffffff" },
-          "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
-          "opacity": { "value": 0.5, "random": false },
-          "size": { "value": 3, "random": true },
-          "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
-          "move": { "enable": true, "speed": 3, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
-        },
-        "interactivity": {
-          "detect_on": "canvas",
-          "events": {
-            "onhover": { "enable": true, "mode": "repulse" },
-            "onclick": { "enable": true, "mode": "push" },
-            "resize": true
-          },
-          "modes": {
-            "repulse": { "distance": 100 },
-            "push": { "particles_nb": 4 }
-          }
-        },
-        "retina_detect": true
-      }
-    );
   </script>
 </body>
 </html>
