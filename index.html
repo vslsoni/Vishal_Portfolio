@@ -13,12 +13,12 @@
   <!-- Custom CSS -->
   <style>
     :root {
-      /* Space/IT themed color palette */
-      --primary: #00d2ff;   /* Electric Blue */
-      --secondary: #3a7bd5; /* Deep Sky Blue */
-      --accent: #f953c6;    /* Vivid Pink */
-      --dark: #0f0f0f;      /* Almost Black */
-      --light: #eaeaea;     /* Light Gray */
+      /* Bold new color palette */
+      --primary: #e74c3c;   /* Vibrant Red */
+      --secondary: #9b59b6; /* Royal Purple */
+      --accent: #3498db;    /* Striking Blue */
+      --dark: #2c3e50;      /* Deep Navy */
+      --light: #ecf0f1;     /* Soft Light Gray */
     }
     html {
       scroll-behavior: smooth;
@@ -38,7 +38,7 @@
       background: transparent;
     }
     .navbar.scrolled {
-      background: rgba(15, 15, 15, 0.95);
+      background: rgba(44, 62, 80, 0.95);
       padding: 0.5rem 2rem;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
@@ -56,11 +56,11 @@
     .nav-link:hover {
       color: var(--accent) !important;
     }
-    /* Hero Section with Particles (Random Lines + Stars) */
+    /* Hero Section with Particles */
     .hero {
       position: relative;
       height: 100vh;
-      /* Changed from pure black to the gradient you liked before */
+      /* Gradient background using your chosen colors */
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       overflow: hidden;
       display: flex;
@@ -69,7 +69,7 @@
       color: #fff;
       text-align: center;
     }
-    /* Particles container remains unchanged */
+    /* Particles container */
     #particles-js {
       position: absolute;
       width: 100%;
@@ -85,11 +85,11 @@
     .hero h1 {
       font-size: 4.5rem;
       margin-bottom: 1rem;
-      text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
     }
     .hero p {
       font-size: 1.8rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     /* Section Titles */
     .section-title {
@@ -181,7 +181,7 @@
     <div class="container">
       <a class="navbar-brand" href="#">Vishal's Portfolio</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -196,7 +196,7 @@
 
   <!-- Hero Section -->
   <section class="hero" data-aos="fade-up">
-    <!-- Particles container for space-themed random lines and stars -->
+    <!-- Particles.js container -->
     <div id="particles-js"></div>
     <div class="content">
       <h1>Welcome to My Portfolio</h1>
@@ -319,6 +319,7 @@
   <!-- JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Include particles.js library -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     // Initialize AOS animations
@@ -334,7 +335,7 @@
       }
     });
     
-    // Initialize particles.js with space-themed random lines and stars on top of the gradient
+    // Initialize particles.js with a configuration for a subtle white particle effect
     particlesJS("particles-js", {
       "particles": {
         "number": {
