@@ -1,4 +1,4 @@
-#
+# Vishal's Portfolio
 
 # <ins>[Project 1: ETL Process and Data Analysis for Sell Phone Company](https://github.com/vslsoni/SQL-Sales-Project-Snowflake)</ins>
 ## Project Overview
