@@ -13,7 +13,8 @@ This project focuses on extracting, transforming, and loading (ETL) sales order 
 - Develop interactive dashboards for data visualization and analysis.
 
 ## Dashboard
-![](/images/Picture1.png)
+![](/images/dashboard1.png)
+![](/images/dashboard2.png)
 
 # <ins>[Project 2: Retail Sales Prediction using predictive modelling](https://github.com/vslsoni/Python-sales-predictive-modelling)</ins>
 ## Project Overview
