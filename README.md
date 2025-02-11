@@ -1,7 +1,7 @@
 # Vishal_Portfolio
 Data Analytics portfolio
 
-# Project 1: ETL Process and Data Analysis for Sell Phone Company
+# [Project 1: ETL Process and Data Analysis for Sell Phone Company](https://github.com/vslsoni/SQL-Sales-Project-Snowflake)
 ## Project Overview
 This project focuses on extracting, transforming, and loading (ETL) sales order data from three major regions: **Asia (India), Europe (France), and North America (USA)**. The objective was to harmonize this data into a unified structure using **Snowflake** and **SQL**, ensuring accurate and insightful data analysis through dynamic dashboards.
 ## Objectives
