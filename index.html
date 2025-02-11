@@ -187,9 +187,8 @@
       width: 100%;
       height: auto;
       display: block;
-      transition: transform 0.3s;
+      /* Tilt effects removed */
     }
-    /* Advanced interactive tilt will be applied to project images via VanillaTilt */
     .project-body {
       padding: 2rem;
     }
@@ -449,13 +448,11 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Include particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <!-- Include VanillaTilt for interactive tilt effects -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
   <script>
     // Initialize AOS animations
     AOS.init({ duration: 800, once: true });
     
-    // Navbar shrink and scroll progress
+    // Navbar shrink effect and scroll progress
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -556,14 +553,6 @@
         }
       },
       "retina_detect": true
-    });
-    
-    // Initialize VanillaTilt on project images for subtle 3D tilt effects
-    VanillaTilt.init(document.querySelectorAll('.project-img'), {
-      max: 15,
-      speed: 400,
-      glare: true,
-      "max-glare": 0.2
     });
     
     // Dark Mode Toggle
