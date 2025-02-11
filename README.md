@@ -12,6 +12,7 @@ This project focuses on extracting, transforming, and loading (ETL) sales order 
 - Utilize **Snowflake** as the primary data warehouse for storage and processing.
 - Automate data ingestion and transformation to streamline the ETL process.
 - Develop interactive dashboards for data visualization and analysis.
+
 ## Dashboard
 ![](https://github.com/vslsoni/Vishal_Portfolio/blob/main/images/Picture1.png)
 
@@ -27,4 +28,6 @@ Rossmann operates over **3,000 stores** across **7 European countries**. Store m
 - Train multiple machine learning models and evaluate their performance.
 - Optimize hyperparameters to improve prediction accuracy.
 - Deploy the best model using **Gradio** for interactive sales forecasting.
+
 ## Interface
+![](https://github.com/vslsoni/Vishal_Portfolio/blob/main/images/Picture4.png)
