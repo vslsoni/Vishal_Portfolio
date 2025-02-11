@@ -1,1 +1,3 @@
-theme: minima
+title: "My Data Analytics Portfolio"
+description: "A showcase of my data analytics projects"
+theme: jekyll-theme-cayman
