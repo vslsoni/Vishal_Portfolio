@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vishal's Portfolio</title>
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    rel="stylesheet">
+  <!-- Custom Styles -->
+  <style>
+    body {
+      padding-top: 70px;
+    }
+    .project-img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    .project {
+      margin-bottom: 60px;
+    }
+    footer {
+      background-color: #343a40;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Vishal's Portfolio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content Container -->
+  <div class="container">
+
+    <!-- About Me Section -->
+    <section id="about" class="my-5">
+      <h2>About Me</h2>
+      <p>
+        Hi, I'm Vishal—a data professional passionate about transforming raw data into actionable insights.
+        With expertise in ETL processes, data analysis, and predictive modeling, I enjoy tackling challenging projects 
+        and turning complex datasets into clear, compelling stories. Welcome to my portfolio!
+      </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="my-5">
+      <h2>Projects</h2>
+
+      <!-- Project 1 -->
+      <div class="project">
+        <h3>
+          <a href="https://github.com/vslsoni/SQL-Sales-Project-Snowflake" target="_blank">
+            Project 1: ETL Process and Data Analysis for Sell Phone Company
+          </a>
+        </h3>
+        <h4>Project Overview</h4>
+        <p>
+          This project focuses on extracting, transforming, and loading (ETL) sales order data from three major regions:
+          <strong>Asia (India), Europe (France), and North America (USA)</strong>. The objective was to harmonize this data 
+          into a unified structure using <strong>Snowflake</strong> and <strong>SQL</strong>, ensuring accurate and insightful 
+          data analysis through dynamic dashboards.
+        </p>
+        <img src="/images/image001.png" alt="ETL Process" class="project-img">
+        <h4>Objectives</h4>
+        <ul>
+          <li>Integrate sales order data from multiple regions into a single structured format.</li>
+          <li>Utilize <strong>Snowflake</strong> as the primary data warehouse for storage and processing.</li>
+          <li>Automate data ingestion and transformation to streamline the ETL process.</li>
+          <li>Develop interactive dashboards for data visualization and analysis.</li>
+        </ul>
+        <h4>Dashboard</h4>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="/images/dashboard1.png" alt="Dashboard 1" class="project-img">
+          </div>
+          <div class="col-md-6">
+            <img src="/images/dashboard2.png" alt="Dashboard 2" class="project-img">
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project">
+        <h3>
+          <a href="https://github.com/vslsoni/Python-sales-predictive-modelling" target="_blank">
+            Project 2: Retail Sales Prediction using Predictive Modelling
+          </a>
+        </h3>
+        <h4>Project Overview</h4>
+        <p>
+          This project focuses on building and evaluating predictive models for forecasting <strong>sales in Rossmann drug stores</strong>.
+          Given historical sales data and various influencing factors such as promotions, competition, holidays, and store attributes, 
+          the goal is to develop a robust predictive model. The best-performing model is integrated into a <strong>Gradio-based interface</strong>, 
+          allowing users to input store features and obtain sales predictions.
+          Rossmann operates over <strong>3,000 stores</strong> across <strong>7 European countries</strong>, and store managers 
+          manually predict daily sales weeks in advance, leading to inconsistencies in accuracy. This project aims to automate and improve 
+          sales forecasting using <strong>machine learning models</strong> trained on historical sales data for <strong>1,115 stores</strong>.
+        </p>
+        <div class="row">
+          <div class="col-md-4">
+            <img src="/images/Picture2.png" alt="Project Image 2" class="project-img">
+          </div>
+          <div class="col-md-4">
+            <img src="/images/Picture3.png" alt="Project Image 3" class="project-img">
+          </div>
+          <div class="col-md-4">
+            <img src="/images/Picture4.png" alt="Gradio Interface" class="project-img">
+          </div>
+        </div>
+        <h4>Objectives</h4>
+        <ul>
+          <li>Clean and preprocess historical sales data.</li>
+          <li>Train multiple machine learning models and evaluate their performance.</li>
+          <li>Optimize hyperparameters to improve prediction accuracy.</li>
+          <li>Deploy the best model using <strong>Gradio</strong> for interactive sales forecasting.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="my-5">
+      <h2>Contact</h2>
+      <p>
+        If you'd like to get in touch, feel free to drop me an email at 
+        <a href="mailto:vishal@example.com">vishal@example.com</a>.
+      </p>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center py-3">
+    <p>&copy; 2025 Vishal. All rights reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
