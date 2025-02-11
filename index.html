@@ -60,7 +60,8 @@
     .hero {
       position: relative;
       height: 100vh;
-      background: #000; /* Dark background for space feel */
+      /* Changed from pure black to the gradient you liked before */
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -68,7 +69,7 @@
       color: #fff;
       text-align: center;
     }
-    /* Retain the random lines effect using particles.js */
+    /* Particles container remains unchanged */
     #particles-js {
       position: absolute;
       width: 100%;
@@ -322,7 +323,7 @@
   <script>
     // Initialize AOS animations
     AOS.init({ duration: 800, once: true });
-
+    
     // Navbar shrink effect on scroll
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');
@@ -332,8 +333,8 @@
         navbar.classList.remove('scrolled');
       }
     });
-
-    // Initialize particles.js for space-themed starry effect with random lines
+    
+    // Initialize particles.js with space-themed random lines and stars on top of the gradient
     particlesJS("particles-js", {
       "particles": {
         "number": {
