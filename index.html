@@ -13,12 +13,12 @@
   <!-- Custom CSS -->
   <style>
     :root {
-      /* Bold new color palette */
-      --primary: #e74c3c;   /* Vibrant Red */
-      --secondary: #9b59b6; /* Royal Purple */
-      --accent: #3498db;    /* Striking Blue */
-      --dark: #2c3e50;      /* Deep Navy */
-      --light: #ecf0f1;     /* Soft Light Gray */
+      /* Space/IT themed color palette */
+      --primary: #00d2ff;   /* Electric Blue */
+      --secondary: #3a7bd5; /* Deep Sky Blue */
+      --accent: #f953c6;    /* Vivid Pink */
+      --dark: #0f0f0f;      /* Almost Black */
+      --light: #eaeaea;     /* Light Gray */
     }
     html {
       scroll-behavior: smooth;
@@ -38,7 +38,7 @@
       background: transparent;
     }
     .navbar.scrolled {
-      background: rgba(44, 62, 80, 0.95);
+      background: rgba(15, 15, 15, 0.95);
       padding: 0.5rem 2rem;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
@@ -56,11 +56,11 @@
     .nav-link:hover {
       color: var(--accent) !important;
     }
-    /* Hero Section */
+    /* Hero Section with Particles (Random Lines + Stars) */
     .hero {
       position: relative;
       height: 100vh;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: #000; /* Dark background for space feel */
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -68,15 +68,14 @@
       color: #fff;
       text-align: center;
     }
-    /* Optional subtle texture overlay */
-    .hero::before {
-      content: "";
+    /* Retain the random lines effect using particles.js */
+    #particles-js {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/black-linen.png');
-      opacity: 0.05;
-      z-index: 1;
+      top: 0;
+      left: 0;
+      z-index: 0;
     }
     .hero .content {
       position: relative;
@@ -85,11 +84,11 @@
     .hero h1 {
       font-size: 4.5rem;
       margin-bottom: 1rem;
-      text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
     }
     .hero p {
       font-size: 1.8rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     }
     /* Section Titles */
     .section-title {
@@ -196,6 +195,8 @@
 
   <!-- Hero Section -->
   <section class="hero" data-aos="fade-up">
+    <!-- Particles container for space-themed random lines and stars -->
+    <div id="particles-js"></div>
     <div class="content">
       <h1>Welcome to My Portfolio</h1>
       <p>Exploring Data, ETL, and Predictive Modelling with Passion</p>
@@ -317,8 +318,12 @@
   <!-- JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
+    // Initialize AOS animations
     AOS.init({ duration: 800, once: true });
+
+    // Navbar shrink effect on scroll
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');
       if (window.scrollY > 80) {
@@ -326,6 +331,75 @@
       } else {
         navbar.classList.remove('scrolled');
       }
+    });
+
+    // Initialize particles.js for space-themed starry effect with random lines
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 100,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false
+        },
+        "size": {
+          "value": 2,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "repulse": {
+            "distance": 100
+          },
+          "push": {
+            "particles_nb": 4
+          }
+        }
+      },
+      "retina_detect": true
     });
   </script>
 </body>
