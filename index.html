@@ -13,7 +13,7 @@
   <!-- Custom CSS -->
   <style>
     :root {
-      /* Bold new color palette from your provided script */
+      /* Your signature color palette */
       --primary: #e74c3c;   /* Vibrant Red */
       --secondary: #9b59b6; /* Royal Purple */
       --accent: #3498db;    /* Striking Blue */
@@ -30,6 +30,7 @@
       line-height: 1.6;
       margin: 0;
       padding: 0;
+      transition: background 0.3s, color 0.3s;
     }
     /* Preloader */
     #preloader {
@@ -95,11 +96,23 @@
     .nav-link:hover {
       color: var(--accent) !important;
     }
+    /* Dark Mode Toggle Button */
+    #theme-toggle {
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #theme-toggle:hover {
+      background: var(--accent);
+    }
     /* Hero Section with Animated Gradient & Particles */
     .hero {
       position: relative;
       height: 100vh;
-      /* Animated gradient background */
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
@@ -176,9 +189,7 @@
       display: block;
       transition: transform 0.3s;
     }
-    .project-img:hover {
-      transform: scale(1.02);
-    }
+    /* Advanced interactive tilt will be applied to project images via VanillaTilt */
     .project-body {
       padding: 2rem;
     }
@@ -246,6 +257,35 @@
       opacity: 1;
       visibility: visible;
     }
+    /* Dark Mode Overrides */
+    body.dark-mode {
+      background: #1c1c1c;
+      color: #f0f0f0;
+    }
+    body.dark-mode .navbar-brand,
+    body.dark-mode .nav-link {
+      color: #f0f0f0 !important;
+    }
+    body.dark-mode .navbar.scrolled {
+      background: rgba(0, 0, 0, 0.95);
+    }
+    body.dark-mode .section-title {
+      color: #f0f0f0;
+    }
+    body.dark-mode .project {
+      background: #2c2c2c;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+    body.dark-mode .project-body h3 a {
+      color: #f0f0f0;
+    }
+    body.dark-mode footer {
+      background: #000;
+      color: #f0f0f0;
+    }
+    body.dark-mode .hero {
+      background: linear-gradient(135deg, #c0392b, #8e44ad);
+    }
   </style>
 </head>
 <body>
@@ -266,10 +306,14 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto align-items-center">
           <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <!-- Dark Mode Toggle Button -->
+          <li class="nav-item ms-3">
+            <button id="theme-toggle">Dark Mode</button>
+          </li>
         </ul>
       </div>
     </div>
@@ -281,7 +325,7 @@
     <div id="particles-js"></div>
     <div class="content">
       <h1>Welcome to My Portfolio</h1>
-      <p>Exploring Data, ETL, and Predictive Modelling with Passion</p>
+      <p>Exploring Data, ETL Process, and Predictive Modelling with Passion</p>
     </div>
   </section>
 
@@ -405,25 +449,25 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Include particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- Include VanillaTilt for interactive tilt effects -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
   <script>
     // Initialize AOS animations
     AOS.init({ duration: 800, once: true });
     
-    // Navbar shrink effect on scroll
+    // Navbar shrink and scroll progress
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 80) {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('scroll-progress').style.width = scrolled + "%";
+      
+      if (winScroll > 80) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
       }
-      
-      // Update scroll progress bar
-      const scrollProgress = document.getElementById('scroll-progress');
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      scrollProgress.style.width = scrolled + "%";
       
       // Show/hide Back-to-Top button
       const backToTop = document.getElementById('back-to-top');
@@ -512,6 +556,26 @@
         }
       },
       "retina_detect": true
+    });
+    
+    // Initialize VanillaTilt on project images for subtle 3D tilt effects
+    VanillaTilt.init(document.querySelectorAll('.project-img'), {
+      max: 15,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2
+    });
+    
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      // Toggle button text based on current theme
+      if (document.body.classList.contains('dark-mode')) {
+        themeToggle.textContent = 'Light Mode';
+      } else {
+        themeToggle.textContent = 'Dark Mode';
+      }
     });
   </script>
 </body>
