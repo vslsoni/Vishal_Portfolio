@@ -13,9 +13,9 @@
   <!-- Custom CSS -->
   <style>
     :root {
-      --primary-color: #1abc9c;
-      --secondary-color: #16a085;
-      --dark-color: #343a40;
+      --primary: #1abc9c;
+      --secondary: #16a085;
+      --dark: #343a40;
     }
     html {
       scroll-behavior: smooth;
@@ -28,86 +28,88 @@
     }
     /* Navbar */
     .navbar {
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.4s ease;
+      padding: 1rem 1rem;
     }
-    .navbar-scrolled {
-      background-color: rgba(0, 0, 0, 0.9) !important;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    .navbar.scrolled {
+      background: rgba(0,0,0,0.85) !important;
+      padding: 0.5rem 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
     .navbar-brand {
+      font-size: 1.8rem;
       font-weight: 700;
-      letter-spacing: 1px;
     }
     .nav-link {
-      margin-right: 1rem;
-      transition: color 0.3s ease;
+      font-size: 1.1rem;
+      margin: 0 0.5rem;
+      transition: color 0.3s;
     }
     .nav-link:hover {
-      color: var(--secondary-color);
+      color: var(--secondary);
     }
-    /* Hero Section */
+    /* Hero Section with Particles */
     .hero {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      color: #fff;
-      padding: 120px 0;
-      text-align: center;
       position: relative;
+      height: 100vh;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
     }
-    .hero::before {
-      content: "";
+    #particles-js {
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      /* A high-quality, relevant background image (fetched from Unsplash) with a low opacity overlay */
-      background: url('https://source.unsplash.com/1600x900/?data,technology') center/cover no-repeat;
-      opacity: 0.15;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    .hero .content {
+      position: relative;
       z-index: 1;
     }
-    .hero .container {
-      position: relative;
-      z-index: 2;
-    }
     .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     .hero p {
-      font-size: 1.3rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      font-size: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     /* Section Titles */
     .section-title {
+      font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 40px;
-      position: relative;
       text-align: center;
-      font-size: 2rem;
+      position: relative;
     }
     .section-title::after {
-      content: '';
-      width: 60px;
-      height: 4px;
-      background: var(--primary-color);
+      content: "";
       display: block;
-      margin: 10px auto 0;
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      margin: 0.5rem auto 0;
       border-radius: 2px;
     }
     /* Project Cards */
     .project {
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-      margin-bottom: 60px;
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      margin-bottom: 60px;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .project:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     }
     .project-img {
       width: 100%;
@@ -115,61 +117,55 @@
       display: block;
     }
     .project-body {
-      padding: 30px;
+      padding: 2rem;
     }
     .project-body h3 a {
       text-decoration: none;
-      color: var(--dark-color);
-      transition: color 0.3s ease;
+      color: var(--dark);
+      transition: color 0.3s;
     }
     .project-body h3 a:hover {
-      color: var(--primary-color);
+      color: var(--primary);
     }
     .project-body h4 {
-      margin-top: 20px;
-      color: var(--secondary-color);
-      font-weight: 500;
-    }
-    .project-body p,
-    .project-body ul {
-      margin-bottom: 20px;
+      color: var(--secondary);
+      margin-top: 1.5rem;
     }
     .project-body ul {
-      padding-left: 20px;
+      padding-left: 1.5rem;
     }
     .project-body ul li {
-      margin-bottom: 8px;
+      margin-bottom: 0.5rem;
     }
-    /* Contact Section */
+    /* Contact */
     #contact p a {
+      color: var(--primary);
       font-weight: 500;
-      color: var(--primary-color);
-      transition: color 0.3s ease;
+      text-decoration: none;
+      transition: color 0.3s;
     }
     #contact p a:hover {
-      color: var(--secondary-color);
+      color: var(--secondary);
     }
     /* Footer */
     footer {
-      background-color: var(--dark-color);
+      background: var(--dark);
       color: #fff;
-      padding: 30px 0;
+      padding: 2rem 0;
       text-align: center;
-      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" data-aos="fade-down">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">Vishal's Portfolio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
-              aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarContent">
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
@@ -180,17 +176,18 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero" data-aos="fade-up">
-    <div class="container">
+  <section class="hero">
+    <div id="particles-js"></div>
+    <div class="content" data-aos="fade-up">
       <h1>Welcome to My Portfolio</h1>
-      <p>Exploring Data, ETL Process, and Predictive Modelling with Passion</p>
+      <p>Exploring Data, ETL, and Predictive Modelling with Passion</p>
     </div>
   </section>
 
   <!-- Main Content -->
   <div class="container my-5">
     <!-- About Me Section -->
-    <section id="about" class="mb-5" data-aos="fade-up" data-aos-delay="100">
+    <section id="about" data-aos="fade-up">
       <h2 class="section-title">About Me</h2>
       <p class="lead text-center">
         Hi, I'm Vishal—a Dedicated and results-driven Data Analyst with a solid background in data management, predictive modelling, and business intelligence. Skilled in R, Python, SQL, and various data visualisation tools, with a proven track record of delivering actionable insights across multiple domains. Adept at implementing data quality assurance measures, collaborating with cross-functional teams, and driving data-driven decision making to achieve impactful outcomes, I enjoy tackling challenging projects 
@@ -199,11 +196,11 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="mb-5" data-aos="fade-up" data-aos-delay="200">
+    <section id="projects" data-aos="fade-up">
       <h2 class="section-title">Projects</h2>
 
       <!-- Project 1 -->
-      <div class="project mb-5" data-aos="fade-up" data-aos-delay="300">
+      <div class="project" data-aos="fade-up">
         <img src="images/image001.png" alt="ETL Process" class="project-img">
         <div class="project-body">
           <h3>
@@ -227,10 +224,10 @@
           </ul>
           <h4>Dashboard</h4>
           <div class="row">
-            <div class="col-md-6" data-aos="fade-right" data-aos-delay="400">
+            <div class="col-md-6" data-aos="fade-right">
               <img src="images/dashboard1.png" alt="Dashboard 1" class="project-img">
             </div>
-            <div class="col-md-6" data-aos="fade-left" data-aos-delay="400">
+            <div class="col-md-6" data-aos="fade-left">
               <img src="images/dashboard2.png" alt="Dashboard 2" class="project-img">
             </div>
           </div>
@@ -238,7 +235,7 @@
       </div>
 
       <!-- Project 2 -->
-      <div class="project mb-5" data-aos="fade-up" data-aos-delay="500">
+      <div class="project" data-aos="fade-up">
         <!-- Picture2 appears at the very top -->
         <img src="images/Picture2.png" alt="Project Image 2" class="project-img">
         <div class="project-body">
@@ -258,12 +255,12 @@
           </p>
         </div>
         <!-- Picture3 appears in between in a smaller (centered) container -->
-        <div class="row mb-3" data-aos="zoom-in" data-aos-delay="600">
+        <div class="row mb-3" data-aos="zoom-in">
           <div class="col-md-6 offset-md-3">
             <img src="images/Picture3.png" alt="Project Image 3" class="project-img">
           </div>
         </div>
-        <div class="project-body" data-aos="fade-up" data-aos-delay="700">
+        <div class="project-body" data-aos="fade-up">
           <h4>Objectives</h4>
           <ul>
             <li>Clean and preprocess historical sales data.</li>
@@ -273,53 +270,77 @@
           </ul>
         </div>
         <!-- Interface subheading and Picture4 at the end -->
-        <div class="project-body" data-aos="fade-up" data-aos-delay="800">
+        <div class="project-body" data-aos="fade-up">
           <h4>Interface</h4>
         </div>
-        <div class="mb-3" data-aos="zoom-in" data-aos-delay="900">
+        <div class="mb-3" data-aos="zoom-in">
           <img src="images/Picture4.png" alt="Gradio Interface" class="img-fluid">
         </div>
       </div>
-
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="mb-5" data-aos="fade-up" data-aos-delay="1000">
+    <section id="contact" data-aos="fade-up">
       <h2 class="section-title">Contact</h2>
       <p class="text-center">
         If you'd like to get in touch, feel free to drop me an email at 
         <a href="mailto:vishal@example.com">vslsoni90@gmail.com</a>.
       </p>
     </section>
-
   </div>
 
   <!-- Footer -->
-  <footer data-aos="fade-up" data-aos-delay="1100">
+  <footer data-aos="fade-up">
     <div class="container">
       <p>&copy; 2025 Vishal. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Bootstrap JS Bundle (includes Popper) -->
+  <!-- JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- AOS JS for animations -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    AOS.init({
-      duration: 800,
-      once: true
-    });
-    
-    // Change navbar background on scroll for a refined effect
+    // Initialize AOS animations
+    AOS.init({ duration: 800, once: true });
+
+    // Navbar shrink effect on scroll
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('navbar-scrolled');
+      if (window.scrollY > 80) {
+        navbar.classList.add('scrolled');
       } else {
-        navbar.classList.remove('navbar-scrolled');
+        navbar.classList.remove('scrolled');
       }
     });
+
+    // Initialize particles.js with inline config
+    particlesJS('particles-js',
+      {
+        "particles": {
+          "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+          "color": { "value": "#ffffff" },
+          "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
+          "opacity": { "value": 0.5, "random": false },
+          "size": { "value": 3, "random": true },
+          "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+          "move": { "enable": true, "speed": 3, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": { "enable": true, "mode": "repulse" },
+            "onclick": { "enable": true, "mode": "push" },
+            "resize": true
+          },
+          "modes": {
+            "repulse": { "distance": 100 },
+            "push": { "particles_nb": 4 }
+          }
+        },
+        "retina_detect": true
+      }
+    );
   </script>
 </body>
 </html>
